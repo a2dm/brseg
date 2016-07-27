@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+					  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:a4j="http://richfaces.org/a4j"
+				xmlns:rich="http://richfaces.org/rich"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:t="http://myfaces.apache.org/tomahawk"
+				xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+	
+	
+		<f:facet name="header">
+			<h:panelGroup>
+				<h:outputText value="Grupo - Cofiguração" />
+			</h:panelGroup>
+		</f:facet>
+		
+		<f:facet name="controls">
+			<h:outputLink value="#" onclick="#{rich:component('panConfiguracao')}.hide(); return false;">
+		    	<h:graphicImage value="../images/exit.png" id="fechaPanelConfiguracao" style="width: 16px; height: 16px; vertical-align:middle;"/>
+	       	</h:outputLink>
+		</f:facet>
+
+		<div class="modal-body">
+			
+			<div class="box-body">
+             <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Grupo</label>
+               <div class="col-sm-6" style="padding-top: 7px;">
+                 <h:outputText value="#{crudBean.entity.idGrupo}" />
+                 <h:outputText value=" - " />
+                 <h:outputText value="#{crudBean.entity.descricao}" />
+               </div>
+             </div>
+            
+             <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Sistema</label>
+               <div class="col-sm-6" style="padding-top: 7px;">
+                 <h:selectOneMenu value="#{crudBean.idSistema}" styleClass="form-control" converter="simpleIndexConverter">								
+					<t:selectItems var="i" itemValue="#{i.idSistema}" itemLabel="#{i.descricao}" value="#{crudBean.listaSistema}" />
+					<a4j:ajax event="change" listener="#{crudBean.carregarPermissoes}" render="pick"/>
+				</h:selectOneMenu>
+               </div>
+             </div>
+            </div>
+			
+			<table width="100%">
+				<tr valign="middle">
+					<td colspan="2" align="center" style="padding: 3px !important;">
+						<rich:pickList value="#{crudBean.listaPermissoesDestino}"
+								sourceListWidth="500" 
+								listsHeight="400" 
+								targetListWidth="450" 
+								showButtonsLabel="false" 
+								removeTitle="" 
+								copyAllTitle="" 
+								copyTitle=""
+								id="pick"
+								orderable="true"
+								converter="simpleIndexConverter">
+						<t:selectItems var="o" itemValue="#{o.idTelaAcao}" itemLabel="#{o.descricao}" value="#{crudBean.listaPermissoes}"/>
+					</rich:pickList>
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="modal-footer">
+			<a4j:commandButton id="panConcluir" styleClass="btn btn-primary pull-left" value="Concluir (C)" accesskey="C" actionListener="#{crudBean.configurar}" render="tblResult" oncomplete="validarConfiguracao('#{crudBean.mensagem}');"/>
+			<input type="button" onclick="#{rich:component('panConfiguracao')}.hide();" class="btn btn-default" value="Fechar (X)" accesskey="X"/>
+		</div>
+		
+		<script>
+			function validarConfiguracao(msg)
+			{
+				if(msg == '')
+				{
+					#{rich:component('panConfiguracao')}.hide(); return false;	
+				}
+				else
+				{
+					alert(msg);
+				}
+			}
+		</script>
+		
+</ui:composition>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html 		xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:ui="http://java.sun.com/jsf/facelets"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:a4j="http://richfaces.org/a4j"
+			xmlns:rich="http://richfaces.org/rich"
+			xmlns:mj="http://mojarra.dev.java.net/mojarra_ext"
+			xmlns:t="http://myfaces.apache.org/tomahawk">
+			
+	<f:loadBundle basename="ApplicationResources" var="bundle"/>
+			
+	<h:head>
+	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		
+		<title>
+			<h:outputText value="#{bundle.tituloAplicacao}"/>
+		</title>
+		
+		<link rel="stylesheet" href="../layout/font-awesome-4.5.0/css/font-awesome.min.css"/>
+		
+		<link rel="stylesheet" href="../layout/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css"/>
+    	<link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css"/>
+	    <link rel="stylesheet" href="../layout/plugins/morris/morris.css"/>
+	    <link rel="stylesheet" href="../layout/plugins/jvectormap/jquery-jvectormap-1.2.2.css"/>
+	    <link rel="stylesheet" href="../layout/plugins/datepicker/datepicker3.css"/>
+	    <link rel="stylesheet" href="../layout/plugins/daterangepicker/daterangepicker-bs3.css"/>
+	    <link rel="stylesheet" href="../layout/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+	    <link rel="stylesheet" href="../css/main.css"/>
+	    
+	    <link rel="shortcut icon" href="../images/favicon.ico"/>
+	    
+	
+
+    <!-- Custom Theme JavaScript -->
+		
+		
+	</h:head>
+
+	<h:body class="sidebar-mini skin-purple-light">
+		
+		<rich:popupPanel id="panel_loading" autosized="true" modal="true" style="z-index: 100000;">
+			<table>
+				<tr>
+					<td><h:graphicImage url="../images/ajax-loader.gif" style="border:0px; vertical-align: middle; padding: 5px;" /></td>
+					<td><h:outputText value=" Aguarde..." /></td>
+				</tr>
+			</table>
+		</rich:popupPanel>
+		
+		<a4j:status id="loading" onstart="#{rich:component('panel_loading')}.show();" onstop="#{rich:component('panel_loading')}.hide();" />
+		
+		<h:form styleClass="form-horizontal" id="contexto">		 
+    	    <div class="wrapper">
+				<header class="main-header">
+			       
+			       	<h:commandLink action="principal" styleClass="logo">
+			          <span class="logo-mini"><b>S</b>EG</span>
+			          <span class="logo-lg"><b>A2DM</b> - Segurança</span>
+			        </h:commandLink>
+			        
+			        
+			        <!-- Header Navbar: style can be found in header.less -->
+			        <nav class="navbar navbar-static-top" role="navigation">
+			          
+			          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+			            <span class="sr-only">Toggle navigation</span>
+			          </a>
+			          
+			          <div class="navbar-custom-menu">
+			            <ul class="nav navbar-nav">
+			             
+			              <li class="dropdown user user-menu">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			                  <i class="glyphicon glyphicon-user"></i>
+			                  <span class="hidden-xs"><h:outputText value=" #{sessionScope.loginUsuario.login}"/></span>
+			                </a>
+			                <ul class="dropdown-menu">
+			                  <!-- User image -->
+			                  <li class="user-header">
+			                    <img src="../images/user.png" class="img-circle"/>
+			                    <p>
+			                      <h:outputText value=" #{sessionScope.loginUsuario.nome}"/>
+			                      <small><h:outputText value=" #{sessionScope.loginUsuario.email}"/></small>
+			                    </p>
+			                  </li>
+			                  <li class="user-footer">
+			                    
+			                    <div class="pull-right">
+			                      <h:commandLink action="#{loginBean.logout}" styleClass="btn btn-default btn-flat">
+			                      	Logout
+			                      </h:commandLink>
+			                    </div>
+			                  </li>
+			                </ul>
+			              </li>
+			              
+			            </ul>
+		        	   </div>
+		            </nav>
+		        </header>
+       		  
+       		  <aside class="main-sidebar">
+		        <!-- sidebar: style can be found in sidebar.less -->
+		        <section class="sidebar">
+		          <!-- sidebar menu: : style can be found in sidebar.less -->
+		          <ul class="sidebar-menu">
+		            <li class="header">MENU PRINCIPAL</li>
+		      
+		            <li><h:commandLink action="#{telaAcaoBean.preparaPesquisar}"><i class="fa fa-mail-forward"></i> <span>Ação</span></h:commandLink></li>
+		            <li><h:commandLink action="#{grupoBean.preparaPesquisar}"><i class="fa fa-th"></i> <span>Grupo</span></h:commandLink></li>
+		            <li><h:commandLink action="#{usuarioBean.preparaPesquisar}"><i class="fa fa-user"></i> <span>Usuário</span></h:commandLink></li>
+		            
+		          </ul>
+		        </section>
+		        <!-- /.sidebar -->
+		      </aside>
+       		  
+	  	      <div class="content-wrapper">     
+				<section class="content">
+	              <!-- Horizontal Form -->
+	              <div class="box box-primary">
+	                <h:panelGroup layout="block" id="panelTitle">
+		                <div class="box-header with-border">
+		                  <h3 class="box-title">#{pageTitle}</h3>
+	                  	</div>
+                  	</h:panelGroup>
+                  	
+                  	<h:panelGroup layout="block" id="formulario">
+                  	
+                  		<a4j:outputPanel style="width:100%;height:100%;" ajaxRendered="true">
+						    <rich:messages layout="table" globalOnly="true" errorClass="alert alert-danger" infoClass="alert alert-success" warnClass="alert alert-info" id="messages"/>
+						</a4j:outputPanel>
+                  	
+	                  	<ui:insert name="saveStateObjects"/>
+						<ui:insert name="saveStateObjectsDefined"/>
+						<ui:insert name="content"/>
+						<ui:insert name="buttons">
+							<div class="box-footer">
+			                    <ui:insert name="buttonItens"/>
+			                </div>		
+						</ui:insert>
+						<ui:insert name="list"/>
+						<ui:insert name="modal"/>
+					</h:panelGroup>
+        		  </div>
+	      	   </section>
+	         </div>
+	         
+	         <footer class="main-footer">
+        		<div class="pull-right hidden-xs">
+          			<b>Version</b> 1.0
+        		</div>
+        		<strong>Copyright &copy; 2016 <a href="http://a2dm.com.br" target="_blank">A2DM</a>.</strong> Todos os direitos reservados.
+      		 </footer>
+	       </div>
+		</h:form>
+   		
+		<script src="../js/custom.js"></script>	
+	    <script src="../layout/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	    
+	    <script src="../layout/bootstrap/js/bootstrap.min.js"></script>
+	    <script src="../layout/plugins/morris/morris.min.js"></script>
+	    <script src="../layout/plugins/sparkline/jquery.sparkline.min.js"></script>
+	    <script src="../layout/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	    <script src="../layout/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	    <script src="../layout/plugins/knob/jquery.knob.js"></script>	
+	    <script src="../layout/plugins/daterangepicker/daterangepicker.js"></script>
+	    <script src="../layout/plugins/datepicker/bootstrap-datepicker.js"></script>
+	    <script src="../layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	    <script src="../layout/plugins/fastclick/fastclick.min.js"></script>
+	    <script src="../layout/dist/js/app.min.js"></script>
+	    <script src="../layout/dist/js/demo.js"></script>
+	</h:body>
+
+</html>

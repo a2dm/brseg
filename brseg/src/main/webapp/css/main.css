@@ -1,0 +1,323 @@
+.rf-msgs-err {
+	color: #a94442 !important;
+	font-size: small;
+	background-image: none !important;
+	font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+	border-color: #ebccd1 !important;
+}
+
+.rf-msgs-inf {
+	color:#3c763d !important;
+	font-size: small;
+	background-image: none !important;
+	font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+	border-color: #d6e9c6 !important;
+}
+
+.rf-pp-shade {
+	z-index: 100000 !important;
+}
+
+
+.rf-dt {
+	border-width: 1px !important;	
+}
+
+.rf-ds-btn {
+	background-color: #f5f5f5;
+}
+
+.rf-ds-btn- {
+	background-color: #f5f5f5;
+}
+
+.rf-pp-cnt-scrlr {
+	background-color: #FFFFFF !important;
+}
+
+.rf-pp-shdw {
+	background-color: none !important;
+}
+
+.rf-pp-hdr-cnt {
+	margin: 0 !important;
+  	padding: 8px 14px !important;
+  	font-size: 13px !important;
+  	font-weight: normal !important;
+  	line-height: 18px !important;
+  	background-color: #f7f7f7 !important;
+  	border-bottom: 1px solid #ebebeb !important;
+  	border-radius: 5px 5px 0 0 !important;
+  	color: #317eac !important;
+}
+
+.rf-pp-hdr {
+	padding: 0 !important;
+}
+
+.rf-pp-cntr {
+	border: none !important;
+	z-index: 100000 !important;
+}
+
+.rf-pp-hdr-cntrls {
+	top: 6px !important;
+	right: 6px !important;
+}
+
+.rf-pick-lst-dcrtn {
+	height: 250px !important;	
+	width: 400px !important;
+}
+
+*.rf-pick-btn-dis {
+	color: rgb(202, 178, 178) !important;	
+}
+
+.rf-pick-lst-scrl {
+	height: 250px !important;
+	max-height: none !important;
+	width: 400px !important;
+}
+
+.rf-ord-btn-dis {
+	color: rgb(202, 178, 178) !important;
+}
+
+
+.rf-cal-btn {
+	height: 30px !important;	
+}
+
+.rf-cal-inp {
+	display: inline !important;	
+}
+
+.rf-cal-hdr {
+	background-color: #D4CFC7 !important;
+}
+
+.rf-cal-popup {
+	width: 250px;
+}
+
+.rf-cal-tl {
+  vertical-align: middle;
+  text-align: center;
+  width: 20px;
+  height: 22px;
+  background-color: #D4CFC7;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+
+.rf-cal-tl {
+  vertical-align: middle;
+  text-align: center;
+  width: 20px;
+  height: 22px;
+  background-color: #D4CFC7;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+
+.rf-cal-hdr-month {
+  vertical-align: middle;
+  text-align: center;
+  height: 22px;
+  white-space: nowrap;
+  background-color: #D4CFC7;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+
+.rf-cal-tl {
+  vertical-align: middle;
+  text-align: center;
+  width: 20px;
+  height: 22px;
+  background-color: #D4CFC7;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+
+.rf-cal-tl {
+  vertical-align: middle;
+  text-align: center;
+  width: 20px;
+  height: 22px;
+  background-color: #D4CFC7;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  font-weight: bold;
+  color: #000000;
+}
+
+.rf-cal-btn-close {
+  padding: 2px 2px 2px 4px;
+  background-image: url(/financeiro/rfRes/calendarSeparator.png.jsf?v=4.3.2.Final&db=eAH7z8DAAAAEAAEA&ln=org.richfaces.images);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.rf-cal-day-lbl {
+  border-bottom: 1px solid;
+  border-right: 0px solid;
+  vertical-align: middle;
+  text-align: center;
+  height: 22px;
+  border-bottom-color: #C4C0B9;
+  border-right-color: #C4C0B9;
+  background-color: #F1EEE9;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.rf-cal-boundary-day {
+  color: rgb(160, 160, 160);
+}
+
+.rf-cal-holiday {
+  background-color: #FFEBDA;
+  color: #FF7800;
+}
+
+.rf-cal-c {
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  padding: 0px;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom-color: #C4C0B9;
+  border-right-color: #C4C0B9;
+  background-color: #FFFFFF;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.rf-cal-c-cnt-overflow {
+  width: 25px;
+  height: 22px;
+}
+
+.rf-cal-today {
+  background-color: #FF7800;
+  color: #FFEBDA;
+  font-weight: bold;
+}
+
+.rf-cal-holiday {
+  background-color: #FFEBDA;
+  color: #FF7800;
+}
+
+.rf-cal-ftr {
+  border-top: 1px solid;
+  border-right: 0px solid;
+  font-size: 11px;
+  font-family: Arial, Verdana, sans-serif;
+  background: #F1EEE9;
+  border-top-color: #C4C0B9;
+  border-right-color: #C4C0B9;
+}
+
+.rf-cal-edtr-btn {
+  width: 36px;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rf-cal-monthpicker-split {
+  border-right: 1px solid;
+  border-right-color: #C4C0B9;
+}
+
+
+.rf-tab-hdr-tabline-vis.rf-tab-hdr-tabline-top {
+    border-style: none !important;
+    border-width: 0px 0px 0 !important;
+    height: 38px !important;
+    overflow: hidden;
+    padding-top: 5px !important;
+    position: relative !important;
+    white-space: nowrap;
+	backgoung: #FFFFFF !important;
+	padding: 7px 0 !important;
+    font-size: 0 !important;
+    margin:0;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/	
+}
+.rf-tab-hdr-inact.rf-tab-hdr-top {
+	-moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background: url("../images/tabbg.gif") repeat-x scroll 0 0 #f0f0f0 !important;
+    border-color: #ccc #ccc #b7b7b7 !important;
+    border-image: none !important;
+    border-radius: 3px 3px 0 0 !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    color: #000 !important;
+    outline: medium none !important;
+    padding: 7px 16px !important;
+    text-decoration: none !important;
+}
+
+.rf-tab-lbl {
+	position: relative;
+    top: 0px;
+    font-weight:bold;
+    border-bottom-color: white;
+    font-size: 12px;
+}
+
+/**
+* TAB ATIVA
+*/
+.rf-tab-hdr-act.rf-tab-hdr-top {
+	padding: 7px 16px !important;
+    font-size: 0;
+    margin:0;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/
+	border: 1px solid #B7B7B7 !important;
+	background: none repeat scroll 0 0 white !important;
+    border-color: #b7b7b7 #b7b7b7 white !important;
+    border-radius: 3px 3px 0 0 !important;
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+
+.rf-tab-hdr-brd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color;
+    border-image: none;
+    border-style: none !important;
+    border-width: none !important;
+    height: 0px !important;
+}
+
+.rf-tab-cnt {
+	background-color: #fff;
+    border-top: 1px solid #b7b7b7 !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 30px !important;
+}

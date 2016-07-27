@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:a4j="http://richfaces.org/a4j"
+				xmlns:rich="http://richfaces.org/rich"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:t="http://myfaces.apache.org/tomahawk"
+				template="template.xhtml">
+	
+	<ui:param name="pageTitle" value="#{crudBean.fullTitle}" />
+	
+	<ui:define name="saveStateObjects">
+		<t:saveState value="#{crudBean.searchObject}" />
+		<t:saveState value="#{crudBean.currentState}" />
+		<t:saveState value="#{crudBean.entity}" />
+		<t:saveState value="#{crudBean.searchResult}" />
+	</ui:define>
+				
+	<ui:define name="buttonItens" style="height:100%; width:100%;">
+		<!-- Painel dos botoes de pesquisa -->
+		<h:panelGroup rendered="#{crudBean.searching}">
+			<a4j:commandButton id="pesquisar" styleClass="btn btn-primary" value="Pesquisar (P)" accesskey="P" actionListener="#{crudBean.pesquisar}" render="tblResult"/>
+			<h:outputText value=" "/>
+			<a4j:commandButton id="preparaInserir" styleClass="btn btn-primary" value="Novo (N)" accesskey="N" actionListener="#{crudBean.preparaInserir}" render="formulario, panelTitle" />			
+		</h:panelGroup>
+		<rich:popupPanel id="grafico" height="85" width="350">
+		</rich:popupPanel>	
+		
+		<!-- Painel dos botoes de edicao -->
+		<h:panelGroup rendered="#{crudBean.updating || crudBean.viewing}">			
+			<a4j:commandButton id="inserir" styleClass="btn btn-primary" value="Gravar (G)" accesskey="G" actionListener="#{crudBean.inserir}" rendered="#{crudBean.inserting}" render="formulario, panelTitle"/>
+			<h:outputText value=" "/>
+			<a4j:commandButton id="alterar" styleClass="btn btn-primary" value="Alterar (A)" accesskey="A" actionListener="#{crudBean.alterar}" rendered="#{crudBean.editing}" render="formulario, panelTitle"/>
+			<h:outputText value=" "/>
+			<a4j:commandButton id="cancelar" styleClass="btn btn-primary" value="Cancelar (C)" accesskey="C" actionListener="#{crudBean.cancelar}" render="formulario, panelTitle" />
+		</h:panelGroup>
+		
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html 		xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:ui="http://java.sun.com/jsf/facelets"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:a4j="http://richfaces.org/a4j"
+			xmlns:rich="http://richfaces.org/rich"
+			xmlns:mj="http://mojarra.dev.java.net/mojarra_ext"
+			xmlns:t="http://myfaces.apache.org/tomahawk">
+			
+	<f:loadBundle basename="ApplicationResources" var="bundle"/>
+			
+	<h:head>	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		
+	    <link rel="stylesheet" href="../layout/bootstrap/css/bootstrap.min.css"/>
+	    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css"/>	
+	    <link rel="stylesheet" href="../layout/plugins/iCheck/square/blue.css"/>
+	    <link rel="stylesheet" href="../css/main.css"/>
+	    <link rel="shortcut icon" href="../images/favicon.ico"/>
+	
+		<title>
+			<h:outputText value="#{bundle.tituloAplicacao}" /> 
+		</title>		 
+	</h:head>
+	
+	<h:body class="hold-transition login-page">
+		<a4j:outputPanel style="width:100%;height:100%;" ajaxRendered="true">
+			<rich:messages layout="table" globalOnly="true" errorClass="alert alert-danger" infoClass="alert alert-info" warnClass="alertLoginSucess" id="messages"/>
+		</a4j:outputPanel>
+		
+		<div class="login-box">
+		
+	    	<div class="login-logo">
+		    	<a href="../../index2.html"><b>A2DM</b> - Segurança</a>
+		    </div>
+		    
+      		<div class="login-box-body">
+        		<p class="login-box-msg">Login para iniciar sua sessão</p>
+        		
+        		<h:form action="../../index2.html" method="post">
+	          		<div class="form-group has-feedback">
+	            		
+	            		<h:inputText id="login" class="form-control" value="#{loginBean.usuario.login}" maxlength="100" onblur="upper(this);" style="text-transform: none;" autocomplete="off">
+							<f:passThroughAttribute name="placeholder" value="Login"/>
+						</h:inputText>
+	            		<span class="glyphicon glyphicon-user form-control-feedback"></span>
+	          		</div>
+	          		
+          			<div class="form-group has-feedback">
+          				<h:inputSecret id="senha" class="form-control" value="#{loginBean.usuario.senha}" maxlength="100" onblur="upper(this);" style="text-transform: none;" autocomplete="off">
+		                	<f:passThroughAttribute name="placeholder" value="Senha"/>
+		               	</h:inputSecret>
+            			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          			</div>
+          
+          			<div class="row">
+			            <div class="col-xs-8">
+			              <div class="checkbox icheck">
+			                <label>
+			               
+			                </label>
+			              </div>
+			            </div><!-- /.col -->
+			            <div class="col-xs-4">
+			              <h:commandButton styleClass="btn btn-primary btn-block btn-flat" id="logar" action="#{loginBean.login}" value="Entrar"/>
+			            </div><!-- /.col -->
+			   		</div>
+        		</h:form>
+
+       
+
+        		<a href="#">Esqueci minha senha</a><br/>
+
+      		</div><!-- /.login-box-body -->
+    	</div>
+    	
+    	<script src="../js/custom.js"></script>
+    	<script src="../layout/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    	<script src="../layout/bootstrap/js/bootstrap.min.js"></script>
+  		<script src="../layout/plugins/iCheck/icheck.min.js"></script>
+    
+	    <script>
+	      $(function () {
+	        $('input').iCheck({
+	          checkboxClass: 'icheckbox_square-blue',
+	          radioClass: 'iradio_square-blue',
+	          increaseArea: '20%' // optional
+	        });
+	      });
+	    </script>
+	</h:body>
+</html>

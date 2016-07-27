@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+					  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:a4j="http://richfaces.org/a4j"
+				xmlns:rich="http://richfaces.org/rich"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:t="http://myfaces.apache.org/tomahawk"
+				xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+	
+	<h:panelGroup id="panelEndereco">
+		<div class="box-body">
+           	<div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Cep *</label>
+               <div class="col-sm-2">
+                 <h:inputText value="#{crudBean.entity.cep}" styleClass="form-control" maxlength="9" onkeypress="javascript: mascara(this, mcep); return soNumero(event, this);" id="cep">
+                 	<a4j:ajax event="blur" listener="#{crudBean.buscarCep}" render="panelEndereco"/>
+                 	<f:passThroughAttribute name="placeholder" value="Cep do Usuário"/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Logradouro *</label>
+               <div class="col-sm-4">
+                 <h:inputText value="#{crudBean.entity.logradouro}" styleClass="form-control" maxlength="200" onblur="upper(this);" id="logradouro">
+                 	<f:passThroughAttribute name="placeholder" value="Logradouro do Usuário"/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Número *</label>
+               <div class="col-sm-1">
+                 <h:inputText value="#{crudBean.entity.numEndereco}" styleClass="form-control" maxlength="6" onkeypress="return soNumero(event, this);" id="numero">
+                 	<f:passThroughAttribute name="placeholder" value="Nº Resid."/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+             <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Bairro *</label>
+               <div class="col-sm-2">
+                 <h:inputText value="#{crudBean.entity.bairro}" styleClass="form-control" maxlength="200" onblur="upper(this);" id="bairro">
+                 	<f:passThroughAttribute name="placeholder" value="Bairro do Usuário"/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Cidade *</label>
+               <div class="col-sm-2">
+                 <h:inputText value="#{crudBean.entity.cidade}" styleClass="form-control" maxlength="200" onblur="upper(this);" id="cidade">
+                 	<f:passThroughAttribute name="placeholder" value="Cidade do Usuário"/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Estado *</label>
+               <div class="col-sm-2">
+               	<h:selectOneMenu value="#{crudBean.entity.idEstado}" styleClass="form-control" converter="simpleIndexConverter">								
+					<t:selectItems var="o" itemValue="#{o.idEstado}" itemLabel="#{o.descricao}" value="#{crudBean.listaEstado}" />
+				</h:selectOneMenu>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Complemento</label>
+               <div class="col-sm-4">
+                 <h:inputText value="#{crudBean.entity.complemento}" styleClass="form-control" maxlength="200" onblur="upper(this);" id="complemento">
+                 	<f:passThroughAttribute name="placeholder" value="Complemento do Usuário"/>
+                 </h:inputText>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Referência</label>
+               <div class="col-sm-4">
+                 <h:inputText value="#{crudBean.entity.referencia}" styleClass="form-control" maxlength="200" onblur="upper(this);" id="referencia">
+                 	<f:passThroughAttribute name="placeholder" value="Ponto de Referência"/>
+                 </h:inputText>
+               </div>
+            </div>
+		</div>
+	</h:panelGroup>
+
+</ui:composition>
